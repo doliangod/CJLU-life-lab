@@ -1,0 +1,46 @@
+{
+  "name": "university-life-lab",
+  "private": true,
+  "version": "1.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "start": "vite --host 0.0.0.0",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "lint": "eslint . --max-warnings 0",
+    "test:smoke": "tsx scripts/smoke.ts",
+    "test:presenter": "node scripts/presenter-smoke.mjs",
+    "test:storage": "tsx scripts/storage-smoke.ts",
+    "test:session": "node scripts/session-smoke.mjs",
+    "export:pdf": "node scripts/export-course-pdf.mjs",
+    "release": "node scripts/package-release.mjs"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "6.1.1",
+    "framer-motion": "13.1.1",
+    "lucide-react": "1.38.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "zustand": "5.0.15"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/node": "26.4.0",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.5",
+    "eslint": "10.9.1",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "eslint-plugin-react-refresh": "0.5.5",
+    "globals": "17.11.0",
+    "pdf-lib": "1.17.1",
+    "playwright": "1.62.1",
+    "tsx": "4.23.13",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.69.0",
+    "vite": "8.2.2"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}
