@@ -1,10 +1,10 @@
 # 大学四年人生实验室
 
-一套面向大学新生的交互式网页课件，以中国计量大学计量测试与仪器学院、测控技术与仪器专业为例，通过校园活动和专业项目，引导学生理解大学经历与个人成长的关系。
+一套面向大学新生的交互式网页课件，以中国计量大学计量测试与仪器学院测控专业为例，通过校园活动和专业项目，引导学生理解大学经历与个人成长的关系。
 
-**33 页课件 · 7 处互动 · 2 段体验 · 建议授课 22 分钟**
+**33 页课件 · 7 处互动 · 2 段体验 · 建议授课 20-25 分钟**
 
-课程由教师投影展示，全班讨论，教师记录一条共同的体验路线。最终生成的是本次课堂的模拟简历样本，不是学生个人真实履历。
+课程由教师投影展示，全班讨论，教师记录一条共同的体验路线。最终生成的是本次课堂的模拟简历样本，不是学生个人真实履历。推荐选择积极向上的互动路线。
 
 ## 课程内容
 
@@ -41,7 +41,7 @@ npm run dev
 
 打开终端显示的网址，通常为 `http://localhost:5173`。如果端口被占用，以实际输出为准。
 
-推荐投影分辨率为 1920×1080，已检查 1366×768 下的主要授课页面。
+推荐投影分辨率为 1920×1080。
 
 ## 构建与部署
 
@@ -59,44 +59,12 @@ dist/
     └── index-….css
 ```
 
-**源码仓库与网页部署文件是两回事：**
-
-- 上传 GitHub 保存和维护项目时，上传完整源码，包括 `src/`、`package.json` 和 `package-lock.json`。
-- 部署已构建网页时，上传 `dist/` 内的全部内容，保持 `index.html` 与 `assets/` 的相对位置。
-- 只上传源码到 GitHub 仓库，不会自动得到可访问的课程网页；还需配置静态网站发布。
-- 若托管服务从源码构建，安装命令使用 `npm ci`，构建命令使用 `npm run build`，发布目录填写 `dist`。
-
-构建采用相对资源路径，可用于网站根目录或子目录。部署后，教师通过网站链接访问，无需安装 Node.js。
-
-本地检查构建效果：
-
 ```sh
 npm run preview
 ```
 
 通常打开 `http://localhost:4173`。请通过本地服务或网站访问，不要直接双击 `dist/index.html`。
 
-## 上传 GitHub
-
-将本项目目录中的文件上传到仓库根目录，让 `README.md`、`package.json`、`index.html` 与 `src/` 处于同一级。
-
-应保留：
-
-```text
-src/                 课程与界面源码
-scripts/             验证、预览、导出与发布脚本
-docs/                教师使用说明
-README.md            项目说明
-package.json         依赖与运行命令
-package-lock.json    依赖版本锁定文件
-index.html           网页入口模板
-vite.config.ts       构建配置
-tsconfig*.json       TypeScript 配置
-eslint.config.js     代码检查配置
-.gitignore           Git 忽略规则
-```
-
-不要上传 `node_modules/`、旧 ZIP、临时截图或历史 PDF。`dist/` 可以随时从源码重新生成，默认不纳入源码仓库。
 
 ## 授课操作
 
@@ -135,25 +103,6 @@ eslint.config.js     代码检查配置
 
 技术栈：React、TypeScript、Vite、Zustand、Framer Motion、Lucide React。
 
-## 验证
-
-```sh
-npm run lint
-npm run test:smoke
-npm run test:storage
-npm run build
-```
-
-先保持开发服务运行，再在另一终端执行：
-
-```sh
-npm run test:presenter
-npm run test:session
-```
-
-浏览器测试默认访问 `http://127.0.0.1:5173`，可通过 `COURSE_URL` 环境变量覆盖。测试使用 Playwright Chromium，或本机 Chrome。
-
-验证包括 1600 种校园选择组合、900 种项目选择组合、改选、键鼠操作、翻页状态同步、进度恢复、重置保护，以及主要页面的两种投影尺寸检查。
 
 ## 可选：PDF 导出与发布包
 
